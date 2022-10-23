@@ -1,5 +1,3 @@
-# CO2 = ((Distância Viajada + Uso de Combustível) * Fator de Emissão)
-
 # Constantes:
 Densidade_gasolina = 0.75
 Fator_transformacao_gasolina_em_CO2 = 3.7
