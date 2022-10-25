@@ -12,6 +12,8 @@ qty_passageiros = int(input('Quantos passageiros em média vão nessas viagens? 
 km_litro = float(input('Quantos kms/litro seu veículo consume? '))
 combustivel_gasto = (distancia_percorrida / km_litro) # cálculo do combustível gasto em uma viagem (l)
 combustivel_anual = qty_viagens * combustivel_gasto
+
+# escolha do tipo de combustivel
 print('\n1 - Gasolina \n2 - Diesel')
 tipo_combustivel = int(input('Digite uma opção com base no menu acima: '))
 
