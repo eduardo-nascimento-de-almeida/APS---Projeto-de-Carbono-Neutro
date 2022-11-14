@@ -16,7 +16,7 @@ distancia_percorrida = float(input('Digite a distância percorrida na viagem (km
 qty_viagens = int(input('Quantas viagens dessa são feitas ao ano? '))
 qty_passageiros = int(input('Quantos passageiros em média vão nessas viagens? '))
 
-km_litro = float(input('Quantos kms/litro seu veículo consume? '))
+km_litro = float(input('Quantos kms/litro consomem os veículos da sua frota? '))
 combustivel_gasto = (distancia_percorrida / km_litro) # cálculo do combustível gasto em uma viagem (l)
 combustivel_anual = qty_viagens * combustivel_gasto
 
@@ -47,7 +47,7 @@ distancia_percorrida = float(input('Digite a distância percorrida na viagem (km
 qty_viagens = int(input('Quantas viagens dessa são feitas ao ano? '))
 qty_passageiros = int(input('Quantos passageiros em média vão nessas viagens? '))
 
-km_litro = float(input('Quantos kms/litro seu veículo consume? '))
+km_litro = float(input('Quantos kms/litro consomem os veículos da sua frota? '))
 combustivel_gasto = (distancia_percorrida / km_litro) # cálculo do combustível gasto em uma viagem (l)
 combustivel_anual = qty_viagens * combustivel_gasto
 
