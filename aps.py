@@ -72,7 +72,8 @@ elif tipo_combustivel == 2:
 CO2_tonelada_ano_atual = CO2 / 1000
 CO2_total_ano_atual = CO2_tonelada_ano_passado * qty_passageiros
 
-print(f'\nEmissão total de carbono no ano de {Ano_passado}: {CO2_total_ano_passado:.2f}t')
+print(f'\nEmpresa: {nome_empresa}')
+print(f'Emissão total de carbono no ano de {Ano_passado}: {CO2_total_ano_passado:.2f}t')
 print(f'Emissão total de carbono no ano de {Ano_atual}: {CO2_total_ano_atual:.2f}t')
 
 if CO2_total_ano_atual > CO2_total_ano_passado:
