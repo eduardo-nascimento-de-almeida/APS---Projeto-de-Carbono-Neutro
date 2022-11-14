@@ -94,13 +94,15 @@ print('\033[33m-=\033[m' * 35)
 print('\033[1;36mhttps://br.investing.com/commodities/carbon-emissions-historical-data\033[m')
 print('\033[33m-=\033[m' * 35)
 
-cotacao_carbono = float(input('\nDigite a cotação atual do crédito de carbono buscando no site destacado acima: € '))
+valor_credito_carbono = float(input('\nDigite a cotação atual do crédito de carbono buscando no site destacado acima: € '))
+
 cotacao_euro = float(input('Digite a cotaçaõ atual do euro: € '))
-conversao_real = cotacao_carbono * cotacao_euro
+conversao_real = valor_credito_carbono * cotacao_euro
 
 print(f'Valor do crédito de carbono: R$ \033[1m{conversao_real:.2f}\033[m\n')
 
 qty_total_carbono = CO2_tonelada * qty_passageiros
 qty_arvores = qty_total_carbono / CO2_por_arvore
 valor_total_carbono = conversao_real * (CO2_tonelada * qty_passageiros)
+
 print(f'\033[1mPara compensar sua emissão de CO2, desembolce: R$ {valor_total_carbono:.2f} ou plante {qty_arvores:.0f} árvores.\033[m')
