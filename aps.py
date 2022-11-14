@@ -42,7 +42,7 @@ CO2_tonelada_ano_passado = CO2 / 1000
 CO2_total_ano_passado = CO2_tonelada_ano_passado * qty_passageiros
 
 # pegada de carbono do ano atual
-print(f'\nAno: {Ano_atual}')
+print(f'Ano: {Ano_atual}')
 distancia_percorrida = float(input('Digite a distância percorrida na viagem (km): '))
 qty_viagens = int(input('Quantas viagens dessa são feitas ao ano? '))
 qty_passageiros = int(input('Quantos passageiros em média vão nessas viagens? '))
@@ -79,30 +79,33 @@ print(f'Emissão total de carbono no ano de {Ano_atual}: {CO2_total_ano_atual:.2
 if CO2_total_ano_atual > CO2_total_ano_passado:
     consumo = CO2_total_ano_atual - CO2_total_ano_passado
     CO2_tonelada = consumo
-    print(f'Sua empresa \033[1;31maumentou\033[m suas emissões de carbono em {consumo:.2f}t comparado ao ano passado.\n')
+    print(f'Sua empresa \033[1;31maumentou\033[m suas emissões de carbono em aproximadamente {consumo:.2f}t comparado ao ano passado.\n')
+    
+    print('\033[33m-=\033[m' * 35)
+    print('\033[1;36mhttps://br.investing.com/commodities/carbon-emissions-historical-data\033[m')
+    print('\033[33m-=\033[m' * 35)
+
+    valor_credito_carbono = float(input('\nDigite a cotação atual do crédito de carbono buscando no site destacado acima: € '))
+
+    cotacao_euro = float(input('Digite a cotaçaõ atual do euro: € '))
+    conversao_real = valor_credito_carbono * cotacao_euro
+
+    print(f'Valor do crédito de carbono: \033[1mR$ {conversao_real:.2f}\033[m\n')
+
+    qty_total_carbono = CO2_tonelada * qty_passageiros
+    qty_arvores = qty_total_carbono / CO2_por_arvore
+    valor_total_carbono = conversao_real * (CO2_tonelada * qty_passageiros)
+
+    print(f'\033[1mPara compensar sua emissão de CO2, pague R$ {valor_total_carbono:.2f} ou plante {qty_arvores:.0f} árvores.\033[m')
 
 elif CO2_total_ano_passado > CO2_total_ano_atual:
     reducao = CO2_total_ano_passado - CO2_total_ano_atual
     CO2_tonelada = reducao
-    print(f'Sua empresa \033[1;32mreduziu\033[m suas emissões de carbono em {reducao:.2f}t comparado ao ano passado.\n')
+    if CO2_tonelada >= 1:
+        print(f'Sua empresa \033[1;32mreduziu\033[m suas emissões de carbono em aproximadamente {reducao:.2f}t comparado ao ano passado e ganhou {reducao:.0f} crédito(s) de carbono.\n')
+    else:
+        print(f'Sua empresa \033[1;32mreduziu\033[m suas emissões de carbono em aproximadamente {reducao:.2f}t comparado ao ano passado. \n')
 
 else:
     CO2_tonelada = CO2_total_ano_passado
-    print(f'Não houve redução ou aumento na emissão de carbono na comparação entre {Ano_atual} x {Ano_passado}.\n')
-
-print('\033[33m-=\033[m' * 35)
-print('\033[1;36mhttps://br.investing.com/commodities/carbon-emissions-historical-data\033[m')
-print('\033[33m-=\033[m' * 35)
-
-valor_credito_carbono = float(input('\nDigite a cotação atual do crédito de carbono buscando no site destacado acima: € '))
-
-cotacao_euro = float(input('Digite a cotaçaõ atual do euro: € '))
-conversao_real = valor_credito_carbono * cotacao_euro
-
-print(f'Valor do crédito de carbono: R$ \033[1m{conversao_real:.2f}\033[m\n')
-
-qty_total_carbono = CO2_tonelada * qty_passageiros
-qty_arvores = qty_total_carbono / CO2_por_arvore
-valor_total_carbono = conversao_real * (CO2_tonelada * qty_passageiros)
-
-print(f'\033[1mPara compensar sua emissão de CO2, desembolce: R$ {valor_total_carbono:.2f} ou plante {qty_arvores:.0f} árvores.\033[m')
+    print(f'Não houve redução ou aumento na emissão de carbono da sua empresa na comparação entre {Ano_atual} x {Ano_passado}.\n')
